@@ -134,13 +134,13 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.ComicViewHol
 
             ComicViewHolder(View itemView) {
                 super(itemView);
-                ButterKnife.bind(this, itemView);
-                itemView.setOnClickListener(this);
+               // ButterKnife.bind(this, itemView);
+                //itemView.setOnClickListener(this);
             }
 
             @Override
             public void onClick(View view) {
-                if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+              //  if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
             }
         }
     }

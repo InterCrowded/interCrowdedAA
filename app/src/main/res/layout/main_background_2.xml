@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/amsterdam" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:scaleType="fitXY"
+        android:background="@color/blueTransparent"
+     />
+
+    <Button
+        android:id="@+id/searchButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="15pt"
+        android:layout_alignParentEnd="true"
+        android:text="search"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/startPointPlacesWidget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/startPointPlacesWidget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20pt"
+        android:layout_marginTop="30pt"
+        android:layout_marginRight="20pt">
+
+        <fragment
+            android:id="@+id/autocomplete_fragmentFROM"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/arrow"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="20pt"
+        android:layout_height="20pt"
+        android:layout_below="@id/startPointPlacesWidget"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3.5pt"
+        app:layout_constraintTop_toBottomOf="@id/startPointPlacesWidget"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="40pt"
+        android:scaleType="centerCrop"
+        android:src="@drawable/arrows" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/endPointPlacesWidget"
+        android:layout_width="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arrow"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrow"
+        android:layout_marginLeft="20pt"
+        android:layout_marginRight="20pt">
+
+        <fragment
+            android:id="@+id/autocomplete_fragmentTO"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </androidx.cardview.widget.CardView>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_marginLeft="20pt"
+    android:layout_marginRight="20pt"
+    android:layout_height="wrap_content"
+    android:id="@+id/time"
+    app:layout_constraintTop_toBottomOf="@id/endPointPlacesWidget"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20pt"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+            <Button
+                android:id="@+id/departingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@color/colorPrimary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="5pt"
+                android:text="Departing" />
+
+            <Button
+                android:id="@+id/arrivalButton"
+                android:layout_width="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5pt"
+                android:text="Arrival" />
+
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@android:color/transparent"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arrivalButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/preference"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="20pt"
+        android:layout_marginRight="20pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time">
+
+
+        <LinearLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pick your preferences"
+                android:textSize="10pt"
+                android:textAlignment="center"
+                android:layout_margin="5pt" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/firstrow"
+                        android:background="@android:color/transparent">
+
+                        <ImageButton
+                            android:id="@+id/ratingIndicator"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:layout_margin="2.5pt"
+                            android:background="@drawable/circle"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/star_icon" />
+
+                        <ImageButton
+                            android:id="@+id/timeIndicator"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:background="@drawable/circle"
+                            android:src="@drawable/clock_icon"                            android:layout_margin="2.5pt"
+
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <ImageButton
+                            android:id="@+id/distanceIndicator"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:background="@drawable/circle"
+                            android:layout_margin="2.5pt"
+                            android:src="@drawable/distance_icon"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <ImageButton
+                            android:id="@+id/footIndicator"
+                            android:layout_width="20pt"
+                            android:layout_margin="2.5pt"
+                            android:layout_height="20pt"
+                            android:background="@drawable/circle"
+                            android:src="@drawable/pedestrian_icon"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <ImageButton
+                            android:id="@+id/cycleIndicator"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:background="@drawable/circle"
+                            android:src="@drawable/bicycle_icon"
+                            android:layout_margin="2.5pt"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/secondrow">
+
+                        <ImageButton
+                            android:id="@+id/kickscooterIndicator"
+                            android:layout_width="20pt"
+                            android:layout_margin="2.5pt"
+                            android:layout_height="20pt"
+                            android:background="@drawable/circle"
+                            android:src="@drawable/kickscooter_icon"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <ImageButton
+                            android:id="@+id/scooterIndicator"
+                            android:layout_margin="2.5pt"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:background="@drawable/circle"
+                            android:src="@drawable/scooter_icon"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <ImageButton
+                            android:id="@+id/busIndicator"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:layout_margin="2.5pt"
+                            android:background="@drawable/circle"
+                            android:src="@drawable/bus_icon"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <ImageButton
+                            android:id="@+id/trainIndicator"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:background="@drawable/circle"
+                            android:layout_margin="2.5pt"
+                            android:src="@drawable/train_icon"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                        <ImageButton
+                            android:id="@+id/carIndicator"
+                            android:layout_width="20pt"
+                            android:layout_height="20pt"
+                            android:layout_margin="2.5pt"
+                            android:background="@drawable/circle"
+                            android:src="@drawable/car_icon"
+                            android:scaleType="fitCenter"
+                            style="?android:attr/borderlessButtonStyle"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

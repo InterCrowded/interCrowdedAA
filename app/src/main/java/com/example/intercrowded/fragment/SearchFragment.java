@@ -85,17 +85,12 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_background, container, false);
+        View view = inflater.inflate(R.layout.main_background_2, container, false);
         ButterKnife.bind(this, view);
 
         initPlaces();
 
-//        startPointTextEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getContext(),"FROM",Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,13 +120,11 @@ public class SearchFragment extends Fragment {
             AutocompleteSupportFragment autocompleteFragmentTO = (AutocompleteSupportFragment)
                     getChildFragmentManager().findFragmentById(R.id.autocomplete_fragmentTO);
 
-        // Specify the types of place data to return.
 
             autocompleteFragmentFROM.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
             autocompleteFragmentTO.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
 
 
-            // Set up a PlaceSelectionListener to handle the response.
         autocompleteFragmentFROM.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
@@ -168,7 +161,7 @@ public class SearchFragment extends Fragment {
         if (getFragmentManager() != null) {
 
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.container, ListFragment.newInstance());
+            ft.replace(R.id.container, ResponseFragment.newInstance());
             ft.addToBackStack("list");
             ft.commit();
         }

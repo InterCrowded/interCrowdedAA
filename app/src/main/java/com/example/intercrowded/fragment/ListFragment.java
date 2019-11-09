@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.example.intercrowded.DataRepository;
 import com.example.intercrowded.JsonTemplate;
 import com.example.intercrowded.R;
@@ -81,6 +82,8 @@ public class ListFragment extends Fragment {
 
         userName.setText("John Doe");
 
+        initCarousel();
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
         feedData = new ArrayList<>();
@@ -108,6 +111,13 @@ public class ListFragment extends Fragment {
         return view;
     }
 
+    private void initCarousel() {
+        final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
+        recyclerView.setAdapter(new RouteAdapter(getContext(), DataRepository.getInstance().getDataSet()));
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+    }
 
 
     private void setupAdapter() {
