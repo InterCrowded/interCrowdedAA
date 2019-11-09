@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/amsterdam"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/whiteTransparent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20pt"
+        android:background="@color/blueTransparent"
+        android:id="@+id/fakeStatusBar">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/backButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="back"
+            android:textSize="12dp"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Select an Option"
+            android:textAlignment="center" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/choseButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="chose"
+            android:textSize="12dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Option #"
+        android:id="@+id/optionLabel"
+        android:layout_below="@+id/fakeStatusBar"
+        android:layout_marginTop="5pt"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/optionLabel"
+        android:layout_height="60pt"
+        android:id="@+id/containerHeader">
+
+        <include layout="@layout/list_view_header"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/containerHeader"
+        android:id="@+id/optionListView"
+        android:background="@android:color/transparent"/>
+
+
+
+
+
+
+</RelativeLayout>

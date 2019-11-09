@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15pt"
+        android:layout_margin="5pt"
+        android:text="Station A - Station B"
+        android:textAlignment="center"
+        android:id="@+id/optionTitle"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30pt"
+        android:gravity="center"
+        android:id="@+id/iconContainer">
+
+        <ImageView
+            android:id="@+id/firstIndicator"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="20pt"
+            android:layout_height="20pt"
+            android:background="@drawable/circle_blue"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bus_icon"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/secondIndicator"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="20pt"
+            android:layout_height="20pt"
+            android:background="@drawable/circle_blue"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bus_icon"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/thirdIndicator"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="20pt"
+            android:layout_height="20pt"
+            android:background="@drawable/circle_blue"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bus_icon"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/fourthIndicator"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="20pt"
+            android:layout_height="20pt"
+            android:background="@drawable/circle_blue"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bus_icon"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/fifthIndicator"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="20pt"
+            android:layout_height="20pt"
+            android:background="@drawable/circle_blue"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bus_icon"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/sixthIndicator"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="20pt"
+            android:layout_height="20pt"
+            android:background="@drawable/circle_blue"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bus_icon"
+            android:layout_margin="2.5pt"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="15pt"
+        android:layout_margin="5pt"
+        android:text="25 min"
+        android:textAlignment="center"
+        android:id="@+id/timeLabel"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25pt"
+        android:gravity="left"
+        android:layout_marginLeft="5pt"
+        android:id="@+id/starContainer">
+
+        <ImageView
+            android:id="@+id/firstStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/secondStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/thirdStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/fourthStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
