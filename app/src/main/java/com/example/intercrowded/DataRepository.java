@@ -21,10 +21,6 @@ public class DataRepository {
         }
 
         public ArrayList<RouteData> getDataSet() {
-            dataSet.add(new RouteData("a"));
-            dataSet.add(new RouteData("b"));
-            dataSet.add(new RouteData("c"));
-            dataSet.add(new RouteData("d"));
             return dataSet;
         }
 

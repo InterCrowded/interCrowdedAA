@@ -16,4 +16,8 @@ public class ApiResponse {
                 "routes=" + routes.toString() +
                 '}';
     }
+
+    public ArrayList<RouteData> getRoutes() {
+        return routes;
+    }
 }

@@ -15,9 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.intercrowded.R;
+import com.example.intercrowded.api.HttpStuff;
 import com.example.intercrowded.api.model.RouteData;
 import com.example.intercrowded.route.adapter.ListViewElementAdapter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -148,8 +150,9 @@ public class SearchFragment extends Fragment {
     private void runSearchQuery() {
         if (getFragmentManager() != null) {
 
+            ArrayList<RouteData> responseData = HttpStuff.testcode.sendRequest().getRoutes();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.container, ListFragment.newInstance());
+            ft.replace(R.id.container, ResponseFragment.newInstance(responseData));
             ft.addToBackStack("list");
             ft.commit();
         }

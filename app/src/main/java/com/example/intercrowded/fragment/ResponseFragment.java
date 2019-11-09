@@ -22,6 +22,7 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.azoft.carousellayoutmanager.DefaultChildSelectionListener;
 import com.example.intercrowded.R;
+import com.example.intercrowded.api.model.InterPath;
 import com.example.intercrowded.api.model.RouteData;
 import com.example.intercrowded.route.adapter.ListViewElementAdapter;
 
@@ -33,6 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ResponseFragment extends Fragment {
+    private static ArrayList<RouteData> responseDataFromQuery;
     private SearchFragment.OnFragmentInteractionListener mListener;
     private ListViewElementAdapter recyclerViewAdapter;
     private ArrayList<RouteData> feedData;
@@ -52,10 +54,12 @@ public class ResponseFragment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @return A new instance of fragment FeedFragment.
+     * @param responseData
      */
-    public static ResponseFragment newInstance() {
+    public static ResponseFragment newInstance(ArrayList<RouteData> responseData) {
         ResponseFragment fragment = new ResponseFragment();
         Bundle args = new Bundle();
+        responseDataFromQuery = responseData;
         fragment.setArguments(args);
         return fragment;
     }
@@ -75,7 +79,7 @@ public class ResponseFragment extends Fragment {
 
         if (listHorizontal != null) {
 
-        initRecyclerView(listHorizontal, new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true), new TestAdapter());
+        initRecyclerView(listHorizontal, new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true), new TestAdapter(responseDataFromQuery));
         }else {
             Toast.makeText(getContext(),"list null", Toast.LENGTH_SHORT).show();
         }
@@ -90,7 +94,7 @@ public class ResponseFragment extends Fragment {
     private void initRecyclerView(final RecyclerView recyclerView, final CarouselLayoutManager layoutManager, final TestAdapter adapter) {
         // enable zoom effect. this line can be customized
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-        layoutManager.setMaxVisibleItems(3);
+        layoutManager.setMaxVisibleItems(1);
 
         recyclerView.setLayoutManager(layoutManager);
         // we expect only fixed sized item for now
@@ -131,15 +135,18 @@ public class ResponseFragment extends Fragment {
         private final Random mRandom = new Random();
         private final int[] mColors;
         private final int[] mPosition;
+        private  ArrayList<RouteData> items = new ArrayList<>();
         private int mItemsCount = 10;
 
-        TestAdapter() {
+        TestAdapter(ArrayList<RouteData> responseDataFromQuery) {
+            mItemsCount = responseDataFromQuery.size();
             mColors = new int[mItemsCount];
             mPosition = new int[mItemsCount];
             for (int i = 0; mItemsCount > i; ++i) {
                 //noinspection MagicNumber
                 //TODO FILL ADAPTER
-                mColors[i] = Color.argb(255, mRandom.nextInt(256), mRandom.nextInt(256), mRandom.nextInt(256));
+                items = responseDataFromQuery;
+               // mColors[i] = Color.argb(255, mRandom.nextInt(256), mRandom.nextInt(256), mRandom.nextInt(256));
                 mPosition[i] = i;
             }
         }
@@ -153,10 +160,12 @@ public class ResponseFragment extends Fragment {
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
 
-            holder.optionLabel.setText(String.valueOf(mPosition[position]));
-            initRegularRecyclerView(holder.optionListView); //option list element
+        //    Toast.makeText(getContext(),items.get(position).getPaths().size(),Toast.LENGTH_SHORT).show();
+            holder.optionLabel.setText(
+                    String.valueOf(items.get(position).getPaths().get(1).getStartpoint().getName().concat(" - ").concat(items.get(position).getPaths().get(1).getEndpoint().getName())));
+            initRegularRecyclerView(holder.optionListView, items.get(position).getPaths()); //option list element
             //holder.mItemViewBinding.cItem2.setText(String.valueOf(mPosition[position]));
-            holder.itemView.setBackgroundColor(mColors[position]);
+           // holder.itemView.setBackgroundColor(mColors[position]);
         }
 
         @Override
@@ -193,11 +202,12 @@ public class ResponseFragment extends Fragment {
         }
     }
 
-    private void initRegularRecyclerView(RecyclerView optionListView) {
+    private void initRegularRecyclerView(RecyclerView optionListView, ArrayList<InterPath> paths) {
 
         optionListView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         optionListView.setHasFixedSize(true);
-       // optionListView.setAdapter(new ListViewElementAdapter(getContext(),));
+
+        optionListView.setAdapter(new ListViewElementAdapter(getContext(), paths));
 
     }
 

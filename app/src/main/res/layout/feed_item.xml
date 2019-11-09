@@ -1,57 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
         <TextView
             android:id="@+id/c_item_1"
             android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_height="wrap_content"
-            android:text="hyyy"
-            android:background="#f00" />
+            android:background="#f00"
+            android:text="hyyy" />
 
         <TextView
             android:id="@+id/c_item_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            android:text="byyyy"
-            android:background="#f00" />
+            android:background="#f00"
+            android:text="byyyy" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:background="#0f0" >
+            android:background="#0f0">
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical" android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/amsterdam"/>
+                    android:src="@drawable/amsterdam" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/whiteTransparent"/>
+                    android:background="@color/whiteTransparent" />
 
                 <RelativeLayout
+                    android:id="@+id/fakeStatusBar"
                     android:layout_width="match_parent"
                     android:layout_height="20pt"
-                    android:background="@color/blueTransparent"
-                    android:id="@+id/fakeStatusBar">
+                    android:background="@color/blueTransparent">
 
                     <Button
                         android:id="@+id/backButton"
@@ -93,26 +92,27 @@
                     android:textSize="20sp" />
 
                 <LinearLayout
+                    android:id="@+id/containerHeader"
                     android:layout_width="match_parent"
-                    android:layout_below="@id/optionLabel"
                     android:layout_height="wrap_content"
-                    android:id="@+id/containerHeader">
+                    android:layout_below="@id/optionLabel">
 
-                    <include layout="@layout/list_view_header"/>
+                    <include layout="@layout/list_view_header" />
 
                 </LinearLayout>
 
                 <RelativeLayout
+                    android:id="@+id/circleContainer"
                     android:layout_width="match_parent"
                     android:layout_height="10pt"
-                    android:id="@+id/circleContainer"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true">
+
                     <ImageView
                         android:layout_width="5pt"
                         android:layout_height="5pt"
                         android:layout_centerInParent="true"
-                        android:background="@drawable/circle_blue"/>
+                        android:background="@drawable/circle_blue" />
                 </RelativeLayout>
 
                 <TextView
@@ -121,43 +121,34 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/swipeUp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5pt"
                     android:layout_marginBottom="10pt"
                     android:text="This commute results in 16 bonus points "
                     android:textSize="20sp" />
 
                 <ImageButton
+                    android:id="@+id/swipeUp"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="25pt"
                     android:layout_height="25pt"
-                    android:id="@+id/swipeUp"
                     android:layout_above="@id/circleContainer"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/swiping_up"
                     android:scaleType="fitCenter"
-                    style="?android:attr/borderlessButtonStyle"/>
+                    android:src="@drawable/swiping_up" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/optionListView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@id/containerHeader"
                     android:layout_above="@+id/bonusLabel"
-                    android:id="@+id/optionListView"
-                    android:background="@android:color/transparent"/>
-
-
-
+                    android:layout_below="@id/containerHeader"
+                    android:background="@android:color/transparent" />
 
 
             </RelativeLayout>
 
 
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

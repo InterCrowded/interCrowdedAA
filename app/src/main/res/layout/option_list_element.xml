@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
         android:id="@+id/transportationmeanTitle"
         android:layout_marginLeft="5pt"
         android:layout_marginTop="5pt"
         android:text="Train A" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ElementTimeLabel"
         android:layout_marginLeft="5pt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transportationmeanTitle"
         android:layout_marginTop="5pt"
-        android:layout_toRightOf="@+id/transportationmeanTitle"
         android:text="10 min" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30pt"
+        app:layout_constraintTop_toBottomOf="@id/ElementTimeLabel"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_below="@+id/transportationmeanTitle"
         android:layout_marginLeft="5pt"
         android:layout_marginTop="5pt"
@@ -63,62 +73,74 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="20pt"
         android:layout_height="20pt"
+        app:layout_constraintTop_toBottomOf="@id/ElementIconContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:background="@drawable/circle_blue"
         android:scaleType="fitCenter"
         android:src="@drawable/bus_icon"
-        android:layout_marginLeft="5pt"
-        android:layout_below="@+id/ElementIconContainer"/>
+        android:layout_marginLeft="5pt"/>
 
     <TextView
+        android:id="@+id/busDestinationTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/busDestinationTitle"
-        android:layout_marginLeft="5pt"
+        android:layout_below="@+id/ElementIconContainer"
         android:layout_marginTop="5pt"
         android:layout_toRightOf="@+id/indicator"
-        android:layout_below="@+id/ElementIconContainer"
-        android:text="Bus Destination" />
+        android:text="Bus Destination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/indicator" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/ElemenDateLabel"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5pt"
-        android:layout_marginTop="5pt"
-        android:layout_below="@+id/indicator"
-        android:text="Saturday 14th December 12:34 - 12:44" />
+        android:layout_marginTop="12dp"
+        android:text="Saturday 14th December 12:34 - 12:44"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/busDestinationTitle" />
 
     <TextView
+        android:id="@+id/occupancyLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/occupancyLabel"
+        android:layout_alignEnd="@+id/ElemenDateLabel"
         android:layout_marginLeft="5pt"
         android:layout_marginTop="5pt"
-        android:layout_below="@+id/ElemenDateLabel"
-        android:text="Occupancy" />
+        android:text="Occupancy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ElemenDateLabel" />
 
     <RelativeLayout
         android:layout_width="50pt"
+        android:id="@+id/occupacyBarRelLayout"
         android:layout_height="10pt"
-        android:background="@drawable/status_bar_default"
-        android:layout_below="@id/occupancyLabel"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="5pt"
-        android:layout_marginTop="5pt">
+        android:layout_marginTop="5pt"
+        app:layout_constraintTop_toBottomOf="@id/occupancyLabel"
+        android:background="@drawable/status_bar_default">
 
         <RelativeLayout
+            android:id="@+id/occupacyBar"
             android:layout_width="25pt"
             android:layout_height="match_parent"
-            android:id="@+id/occupacyBar"
-            android:background="@drawable/status_bar"/>
+            android:background="@drawable/status_bar" />
 
     </RelativeLayout>
 
     <com.google.android.gms.maps.MapView
-        android:layout_width="30pt"
-        android:layout_height="30pt"
         android:id="@+id/mapPreview"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20pt"
-        android:layout_below="@id/transportationmeanTitle"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transportationmeanTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/occupacyBarRelLayout" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

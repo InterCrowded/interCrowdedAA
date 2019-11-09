@@ -12,6 +12,14 @@ public class RouteData {
         this.paths = paths;
     }
 
+    public String getRoute_id() {
+        return route_id;
+    }
+
+    public ArrayList<InterPath> getPaths() {
+        return paths;
+    }
+
     @Override
     public String toString() {
         return "RouteData{" +

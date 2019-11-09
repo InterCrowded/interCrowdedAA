@@ -20,6 +20,30 @@ public class InterPath {
 
     }
 
+    public Timespan getTimespan() {
+        return timespan;
+    }
+
+    public GPSPoint getStartpoint() {
+        return startpoint;
+    }
+
+    public GPSPoint getEndpoint() {
+        return endpoint;
+    }
+
+    public double getOccupancy() {
+        return occupancy;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public String getVehicle_type() {
+        return vehicle_type;
+    }
+
     @Override
     public String toString() {
         return "InterPath{" +

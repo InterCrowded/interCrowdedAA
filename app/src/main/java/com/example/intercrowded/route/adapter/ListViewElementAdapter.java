@@ -11,8 +11,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intercrowded.R;
+import com.example.intercrowded.api.model.InterPath;
 import com.example.intercrowded.api.model.RouteData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -22,12 +24,11 @@ import butterknife.ButterKnife;
 public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElementAdapter.ListViewElementViewHolder> {
 
 
-        private List<RouteData> mData;
+        private ArrayList<InterPath> mData;
         private Context context;
-       // private StorageReference storageReference;
 
 
-        public ListViewElementAdapter(Context context, List<RouteData> data) {
+        public ListViewElementAdapter(Context context, ArrayList<InterPath> data) {
             this.mData = data;
             this.context = context;
         }
@@ -41,8 +42,9 @@ public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElement
 
         @Override
         public void onBindViewHolder(final ListViewElementViewHolder holder, int position) {
-            final RouteData ad = mData.get(position);
-           // holder
+            final InterPath ad = mData.get(position);
+            holder.transportationmeanTitle.setText(ad.getVehicle_type());
+            holder.ElementTimeLabel.setText(ad.getTimespan().toString());
         }
 
 
