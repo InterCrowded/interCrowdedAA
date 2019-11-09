@@ -149,7 +149,7 @@ public class SearchFragment extends Fragment {
         if (getFragmentManager() != null) {
 
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.container, ResponseFragment.newInstance());
+            ft.replace(R.id.container, ListFragment.newInstance());
             ft.addToBackStack("list");
             ft.commit();
         }

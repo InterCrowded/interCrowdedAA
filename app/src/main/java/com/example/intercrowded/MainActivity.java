@@ -2,12 +2,13 @@ package com.example.intercrowded;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
+import com.example.intercrowded.api.HttpStuff;
 import com.example.intercrowded.fragment.SearchFragment;
 
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
+        Log.d("debug", HttpStuff.testcode.sendRequest().toString());
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container, SearchFragment.newInstance());
         //ft.addToBackStack("search");

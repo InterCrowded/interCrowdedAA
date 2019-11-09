@@ -2,6 +2,7 @@ package com.example.intercrowded.api;
 
 import androidx.annotation.NonNull;
 
+import com.example.intercrowded.api.model.ApiResponse;
 import com.example.intercrowded.api.response.RouteResponse;
 
 public class RemoteDataProvider implements IDataProvider {
@@ -16,10 +17,10 @@ public class RemoteDataProvider implements IDataProvider {
     }
 
     @Override
-    public void getRoutes(String limit, @NonNull DataListener<RouteResponse> routeListener) {
+    public void getRoutes(String user_id, String startpoint, String endpoint, String timespan, @NonNull DataListener<ApiResponse> routeListener) {
 
 
-        ResponseHandler.handleCall(apiService.getRoutes(limit), routeListener);
+        ResponseHandler.handleCall(apiService.getRoutes(user_id, startpoint, endpoint, timespan), routeListener);
 
     }
 

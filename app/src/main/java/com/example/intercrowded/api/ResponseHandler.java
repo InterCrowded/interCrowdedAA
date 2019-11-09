@@ -1,5 +1,7 @@
 package com.example.intercrowded.api;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import retrofit2.Call;
@@ -24,6 +26,7 @@ public class ResponseHandler {
                 }
 
                 if (response.isSuccessful()) {
+                    Log.d("debug","SUCCESS");
                     responseListener.onSuccess(response.body());
                 } else {
                     responseListener.onError("");
