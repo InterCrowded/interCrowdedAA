@@ -62,9 +62,10 @@ class HttpStuff {
             val client = RetrofitClient.getInstance()
 
             var json_respond:ApiResponse? = null
+            val url = "http://18.203.246.79:8080/api/routes" + "?" + data.user_id + "&&" + start.toString() + "&&" + end.toString() + "&&" + data.timespan.toString()
 
             thread {
-                val result = URL("http://18.203.246.79:8080/api/routes").readText()
+                val result = URL(url).readText()
 
                 val gson = GsonBuilder().create()
 
