@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/round_rect_white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick your preferences"
+        android:textSize="10pt"
+        android:textAlignment="center"
+        android:layout_margin="5pt" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstrow"
+                android:background="@android:color/transparent">
+
+                <ImageButton
+                    android:id="@+id/ratingIndicator"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/star_icon" />
+
+                <ImageButton
+                    android:id="@+id/timeIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/clock_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <ImageButton
+                    android:id="@+id/distanceIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/distance_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <ImageButton
+                    android:id="@+id/footIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/pedestrian_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <ImageButton
+                    android:id="@+id/cycleIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/bicycle_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondrow">
+
+                <ImageButton
+                    android:id="@+id/kickscooterIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/kickscooter_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <ImageButton
+                    android:id="@+id/scooterIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/scooter_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <ImageButton
+                    android:id="@+id/busIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/bus_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <ImageButton
+                    android:id="@+id/trainIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/train_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <ImageButton
+                    android:id="@+id/carIndicator"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/car_icon"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>
