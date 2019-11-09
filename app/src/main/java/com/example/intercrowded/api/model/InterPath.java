@@ -16,7 +16,19 @@ public class InterPath {
         this.occupancy = occupancy;
         this.rating = rating;
         this.vehicle_type = vehicle_type;
+
+
     }
 
-
+    @Override
+    public String toString() {
+        return "InterPath{" +
+                "timespan=" + timespan.toString() +
+                ", startpoint=" + startpoint.toString() +
+                ", endpoint=" + endpoint.toString() +
+                ", occupancy=" + occupancy +
+                ", rating=" + rating +
+                ", vehicle_type='" + vehicle_type + '\'' +
+                '}';
+    }
 }

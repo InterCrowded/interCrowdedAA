@@ -11,5 +11,13 @@ public class RouteData {
         this.route_id = route_id;
         this.paths = paths;
     }
+
+    @Override
+    public String toString() {
+        return "RouteData{" +
+                "route_id='" + route_id + '\'' +
+                ", paths=" + paths.toString() +
+                '}';
+    }
 }
 

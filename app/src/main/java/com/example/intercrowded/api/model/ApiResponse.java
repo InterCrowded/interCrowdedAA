@@ -9,4 +9,11 @@ public class ApiResponse {
     public ApiResponse(ArrayList<RouteData> routes) {
         this.routes = routes;
     }
+
+    @Override
+    public String toString() {
+        return "ApiResponse{" +
+                "routes=" + routes.toString() +
+                '}';
+    }
 }

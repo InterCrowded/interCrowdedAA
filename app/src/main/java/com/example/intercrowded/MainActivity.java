@@ -2,6 +2,7 @@ package com.example.intercrowded;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,13 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.intercrowded.api.HttpStuff;
-import com.example.intercrowded.base.BaseApplication;
-import com.example.intercrowded.fragment.ListFragment;
-import com.example.intercrowded.fragment.SearchFragment;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.net.PlacesClient;
-
-import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,14 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, SearchFragment.newInstance());
-        //ft.addToBackStack("search");
-        ft.commit();
-
-        HttpStuff.testcode.testResponseDecode();
+        Log.d("debug",HttpStuff.testcode.sendRequest().toString());
 
 
 
