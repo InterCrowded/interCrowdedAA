@@ -1,0 +1,19 @@
+{
+routes:[
+{route_id:"1234",
+paths:[
+{
+time_span:{
+  start:"yyyy-mm-ddThh:mm:ssZ",
+  end:"yyyy-mm-ddThh:mm:ssZ"},
+startpoint:{lat:0.0,lon:0.0,name:"Amsterdam"}
+,
+endpoint:{lat:0.0,lon:0.0,name:"Rotterdam"}
+,
+occupancy:0.5,
+rating:3,
+vehicle_type:"Bus_801"
+}
+]}
+]
+}
