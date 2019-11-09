@@ -1,26 +1,15 @@
 package com.example.intercrowded.api.model;
 
+import java.util.ArrayList;
+
 public class RouteData {
-    String message;
 
+    String route_id;
+    ArrayList<InterPath> paths;
 
-    public RouteData(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-
-    }
-
-    @Override
-    public String toString() {
-        return "RouteData{" +
-                "message='" + message + '\'' +
-                '}';
+    public RouteData(String route_id, ArrayList<InterPath> paths) {
+        this.route_id = route_id;
+        this.paths = paths;
     }
 }
+

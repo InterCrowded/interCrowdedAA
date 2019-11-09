@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.intercrowded.api.HttpStuff;
 import com.example.intercrowded.base.BaseApplication;
 import com.example.intercrowded.fragment.ListFragment;
 import com.example.intercrowded.fragment.SearchFragment;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.container, SearchFragment.newInstance());
         //ft.addToBackStack("search");
         ft.commit();
+
+        HttpStuff.testcode.testResponseDecode();
 
 
 

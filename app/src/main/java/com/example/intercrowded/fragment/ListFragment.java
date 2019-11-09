@@ -93,7 +93,6 @@ public class ListFragment extends Fragment {
                 //DataRepository.getInstance().setFeedData(feedData);
                 //setupAdapter();
 
-                Toast.makeText(getContext(),routeResponse.getMessage(),Toast.LENGTH_SHORT).show();
             }
 
             @Override
