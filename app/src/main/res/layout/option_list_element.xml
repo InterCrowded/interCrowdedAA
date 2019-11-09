@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/transportationmeanTitle"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:text="Train A" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ElementTimeLabel"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:layout_toRightOf="@+id/transportationmeanTitle"
+        android:text="10 min" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30pt"
+        android:layout_below="@+id/transportationmeanTitle"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:id="@+id/ElementIconContainer">
+
+        <ImageView
+            android:id="@+id/firstStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/secondStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/thirdStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+        <ImageView
+            android:id="@+id/fourthStar"
+            android:layout_width="15pt"
+            android:layout_height="15pt"
+            android:scaleType="fitCenter"
+            android:src="@drawable/star_blue"
+            android:layout_margin="2.5pt"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/indicator"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="20pt"
+        android:layout_height="20pt"
+        android:background="@drawable/circle_blue"
+        android:scaleType="fitCenter"
+        android:src="@drawable/bus_icon"
+        android:layout_marginLeft="5pt"
+        android:layout_below="@+id/ElementIconContainer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/busDestinationTitle"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:layout_toRightOf="@+id/indicator"
+        android:layout_below="@+id/ElementIconContainer"
+        android:text="Bus Destination" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ElemenDateLabel"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:layout_below="@+id/indicator"
+        android:text="Saturday 14th December 12:34 - 12:44" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/occupancyLabel"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:layout_below="@+id/ElemenDateLabel"
+        android:text="Occupancy" />
+
+    <RelativeLayout
+        android:layout_width="50pt"
+        android:layout_height="10pt"
+        android:background="@drawable/status_bar_default"
+        android:layout_below="@id/occupancyLabel"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt">
+
+        <RelativeLayout
+            android:layout_width="25pt"
+            android:layout_height="match_parent"
+            android:id="@+id/occupacyBar"
+            android:background="@drawable/status_bar"/>
+
+    </RelativeLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:layout_width="30pt"
+        android:layout_height="30pt"
+        android:id="@+id/mapPreview"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20pt"
+        android:layout_below="@id/transportationmeanTitle"/>
+
+</RelativeLayout>
