@@ -1,10 +1,26 @@
 package com.example.intercrowded.api.response;
 
 public class RouteResponse {
-    private RouteWrap data;
+    String message;
 
-    public RouteWrap getData() {
-        return data;
+
+    public RouteResponse(String message) {
+        this.message = message;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+
+    }
+
+    @Override
+    public String toString() {
+        return "RouteData{" +
+                "message='" + message + '\'' +
+                '}';
+    }
 }

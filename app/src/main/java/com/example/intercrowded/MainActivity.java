@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.intercrowded.base.BaseApplication;
 import com.example.intercrowded.fragment.ListFragment;
+import com.example.intercrowded.fragment.SearchFragment;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.net.PlacesClient;
 
 import butterknife.ButterKnife;
 
@@ -22,19 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //runSearchQuery();
-
-
-
-
-    }
-
-    private void runSearchQuery() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, ListFragment.newInstance());
-        ft.addToBackStack("a");
+        ft.replace(R.id.container, SearchFragment.newInstance());
+        //ft.addToBackStack("search");
         ft.commit();
+
+
+
     }
+
 
     @Override
     public void onBackPressed() {

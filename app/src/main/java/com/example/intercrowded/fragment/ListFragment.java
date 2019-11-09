@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -88,9 +89,11 @@ public class ListFragment extends Fragment {
             @Override
             public void onSuccess(RouteResponse routeResponse) {
 
-                feedData.addAll(routeResponse.getData().getResults());
-                DataRepository.getInstance().setFeedData(feedData);
-                setupAdapter();
+                //feedData.addAll(routeResponse.getData().getResults());
+                //DataRepository.getInstance().setFeedData(feedData);
+                //setupAdapter();
+
+                Toast.makeText(getContext(),routeResponse.getMessage(),Toast.LENGTH_SHORT).show();
             }
 
             @Override
