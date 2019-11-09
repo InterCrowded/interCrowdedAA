@@ -6,4 +6,5 @@
     <color name="secondAccent">#FFF314</color>
     <color name="thirdAccent">#000505</color>
     <color name="blueTransparent">#ef78E0DC</color>
+    <color name="whiteTransparent">#efffffff</color>
 </resources>
