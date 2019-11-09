@@ -23,7 +23,6 @@
         android:layout_marginTop="10pt"
         android:text="interpass"
         android:textAlignment="center" />
-
     <Button
         android:id="@+id/searchButton"
         style="?android:attr/borderlessButtonStyle"
