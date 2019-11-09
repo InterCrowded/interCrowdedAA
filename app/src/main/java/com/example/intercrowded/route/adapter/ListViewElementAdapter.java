@@ -42,7 +42,7 @@ public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElement
         @Override
         public void onBindViewHolder(final ListViewElementViewHolder holder, int position) {
             final RouteData ad = mData.get(position);
-            holder
+           // holder
         }
 
 

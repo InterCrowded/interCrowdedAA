@@ -8,13 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.intercrowded.base.BaseApplication;
-import com.example.intercrowded.fragment.ListFragment;
 import com.example.intercrowded.fragment.SearchFragment;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.net.PlacesClient;
-
-import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity {

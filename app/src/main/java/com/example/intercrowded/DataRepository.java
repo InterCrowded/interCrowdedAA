@@ -1,7 +1,6 @@
 package com.example.intercrowded;
 
 import com.example.intercrowded.api.model.RouteData;
-import com.example.intercrowded.route.adapter.RouteAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

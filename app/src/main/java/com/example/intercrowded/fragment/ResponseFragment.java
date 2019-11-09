@@ -8,14 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
@@ -24,7 +23,7 @@ import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.azoft.carousellayoutmanager.DefaultChildSelectionListener;
 import com.example.intercrowded.R;
 import com.example.intercrowded.api.model.RouteData;
-import com.example.intercrowded.route.adapter.RouteAdapter;
+import com.example.intercrowded.route.adapter.ListViewElementAdapter;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -35,7 +34,7 @@ import butterknife.ButterKnife;
 
 public class ResponseFragment extends Fragment {
     private SearchFragment.OnFragmentInteractionListener mListener;
-    private RouteAdapter recyclerViewAdapter;
+    private ListViewElementAdapter recyclerViewAdapter;
     private ArrayList<RouteData> feedData;
     private FragmentTransaction ft;
     private String dataSetType;
@@ -57,7 +56,6 @@ public class ResponseFragment extends Fragment {
     public static ResponseFragment newInstance() {
         ResponseFragment fragment = new ResponseFragment();
         Bundle args = new Bundle();
-        //args.putString(OWN, own);
         fragment.setArguments(args);
         return fragment;
     }
@@ -89,13 +87,10 @@ public class ResponseFragment extends Fragment {
 
 
 
-
-
-
     private void initRecyclerView(final RecyclerView recyclerView, final CarouselLayoutManager layoutManager, final TestAdapter adapter) {
         // enable zoom effect. this line can be customized
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-        layoutManager.setMaxVisibleItems(2);
+        layoutManager.setMaxVisibleItems(3);
 
         recyclerView.setLayoutManager(layoutManager);
         // we expect only fixed sized item for now
@@ -136,7 +131,7 @@ public class ResponseFragment extends Fragment {
         private final Random mRandom = new Random();
         private final int[] mColors;
         private final int[] mPosition;
-        private int mItemsCount = 100;
+        private int mItemsCount = 10;
 
         TestAdapter() {
             mColors = new int[mItemsCount];
@@ -157,8 +152,9 @@ public class ResponseFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
-            Log.e("!!!!!!!!!", "onBindViewHolder: " + position);
-            holder.c_item_1.setText(String.valueOf(mPosition[position]));
+
+            holder.optionLabel.setText(String.valueOf(mPosition[position]));
+            initRegularRecyclerView(holder.optionListView); //option list element
             //holder.mItemViewBinding.cItem2.setText(String.valueOf(mPosition[position]));
             holder.itemView.setBackgroundColor(mColors[position]);
         }
@@ -174,20 +170,35 @@ public class ResponseFragment extends Fragment {
         }
 
 
-        public class TestViewHolder extends RecyclerView.ViewHolder /* implements View.OnClickListener*/ {
+        public class TestViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-            @BindView(R.id.c_item_1)
-            TextView c_item_1;
+            @BindView(R.id.optionLabel)
+            TextView optionLabel;
             @BindView(R.id.c_item_2)
             TextView c_item_2;
+            @BindView(R.id.optionListView)
+            RecyclerView optionListView;
 
 
             TestViewHolder(View itemView) {
                 super(itemView);
                 ButterKnife.bind(this, itemView);
-                //  itemView.setOnClickListener(this);
+                itemView.setOnClickListener(this);
+            }
+
+            @Override
+            public void onClick(View v) {
+
             }
         }
+    }
+
+    private void initRegularRecyclerView(RecyclerView optionListView) {
+
+        optionListView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        optionListView.setHasFixedSize(true);
+       // optionListView.setAdapter(new ListViewElementAdapter(getContext(),));
+
     }
 
     @Override

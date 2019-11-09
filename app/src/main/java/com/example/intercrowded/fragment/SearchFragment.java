@@ -9,30 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.intercrowded.DataRepository;
-import com.example.intercrowded.JsonTemplate;
 import com.example.intercrowded.R;
 import com.example.intercrowded.api.model.RouteData;
-import com.example.intercrowded.base.BaseApplication;
-import com.example.intercrowded.route.OpenDetailListener;
-import com.example.intercrowded.route.adapter.RouteAdapter;
+import com.example.intercrowded.route.adapter.ListViewElementAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.example.intercrowded.api.IDataProvider;
-import com.example.intercrowded.api.RemoteDataProvider;
-import com.example.intercrowded.api.response.RouteResponse;
 import com.google.android.gms.common.api.Status;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -52,7 +40,7 @@ public class SearchFragment extends Fragment {
     Button searchButton;
 
     private OnFragmentInteractionListener mListener;
-    private RouteAdapter recyclerViewAdapter;
+    private ListViewElementAdapter recyclerViewAdapter;
     private ArrayList<RouteData> feedData;
     private FragmentTransaction ft;
     private String dataSetType;

@@ -32,6 +32,123 @@
             android:layout_centerInParent="true"
             android:background="#0f0" >
 
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/amsterdam"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/whiteTransparent"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20pt"
+                    android:background="@color/blueTransparent"
+                    android:id="@+id/fakeStatusBar">
+
+                    <Button
+                        android:id="@+id/backButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:text="close"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Select an Option"
+                        android:textAlignment="center"
+                        android:textStyle="bold|italic" />
+
+                    <Button
+                        android:id="@+id/choseButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:text="confirm"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="12dp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/optionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fakeStatusBar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5pt"
+                    android:text="Option #"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/optionLabel"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/containerHeader">
+
+                    <include layout="@layout/list_view_header"/>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10pt"
+                    android:id="@+id/circleContainer"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+                    <ImageView
+                        android:layout_width="5pt"
+                        android:layout_height="5pt"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/circle_blue"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/bonusLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/swipeUp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5pt"
+                    android:layout_marginBottom="10pt"
+                    android:text="This commute results in 16 bonus points "
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:layout_width="25pt"
+                    android:layout_height="25pt"
+                    android:id="@+id/swipeUp"
+                    android:layout_above="@id/circleContainer"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/swiping_up"
+                    android:scaleType="fitCenter"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/containerHeader"
+                    android:layout_above="@+id/bonusLabel"
+                    android:id="@+id/optionListView"
+                    android:background="@android:color/transparent"/>
+
+
+
+
+
+            </RelativeLayout>
 
 
 
