@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,7 @@ import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.azoft.carousellayoutmanager.DefaultChildSelectionListener;
+import com.example.intercrowded.MarginItemDecoration;
 import com.example.intercrowded.R;
 import com.example.intercrowded.api.model.InterPath;
 import com.example.intercrowded.api.model.RouteData;
@@ -88,8 +90,6 @@ public class ResponseFragment extends Fragment {
         return view;
 
     }
-
-
 
 
     private void initRecyclerView(final RecyclerView recyclerView, final CarouselLayoutManager layoutManager, final TestAdapter adapter) {
@@ -206,7 +206,9 @@ public class ResponseFragment extends Fragment {
     private void initRegularRecyclerView(RecyclerView optionListView, ArrayList<InterPath> paths) {
 
         optionListView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true));
-        optionListView.setHasFixedSize(true);
+        optionListView.setHasFixedSize(false);
+        optionListView.setScrollBarSize(5);
+        optionListView.addItemDecoration(new MarginItemDecoration((int)getResources().getDimension(R.dimen.cardview_default_elevation)));
 
         optionListView.setAdapter(new ListViewElementAdapter(getContext(), paths));
 
