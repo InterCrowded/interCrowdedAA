@@ -163,6 +163,8 @@ public class ResponseFragment extends Fragment {
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
 
+            initRegularRecyclerView(holder.optionListView, items.get(position).getPaths());
+
             holder.optionLabel.setText("Option " + (position + 1));
             ((TextView) holder.containerHeader.findViewById(R.id.optionTitle)).setText(String.valueOf(items.get(position).getPaths().get(1).getStartpoint().getName().concat(" - ").concat(items.get(position).getPaths().get(1).getEndpoint().getName())));
 
