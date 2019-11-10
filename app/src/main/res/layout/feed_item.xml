@@ -14,7 +14,6 @@
             android:layout_height="wrap_content"
             android:background="#f00"
             android:text="hyyy" />
-
         <TextView
             android:id="@+id/c_item_2"
             android:layout_width="match_parent"
@@ -141,6 +140,7 @@
                     android:layout_height="match_parent"
                     android:layout_above="@+id/bonusLabel"
                     android:layout_below="@id/containerHeader"
+                    android:layout_alignStart="@+id/containerHeader"
                     android:background="@android:color/transparent" />
 
 

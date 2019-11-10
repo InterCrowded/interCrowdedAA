@@ -35,7 +35,7 @@ public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElement
 
         @Override
         public ListViewElementViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.option_list_element, null);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_element, parent,false);
             return new ListViewElementViewHolder(view);
         }
 
@@ -43,8 +43,7 @@ public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElement
         @Override
         public void onBindViewHolder(final ListViewElementViewHolder holder, int position) {
             final InterPath ad = mData.get(position);
-            holder.transportationmeanTitle.setText(ad.getVehicle_type());
-            holder.ElementTimeLabel.setText(ad.getTimespan().toString());
+            holder.transportationMeanTitlePreview.setText(ad.getVehicle_type());
         }
 
 
@@ -57,10 +56,8 @@ public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElement
 
         public class ListViewElementViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-            @BindView(R.id.transportationmeanTitle)
-            TextView transportationmeanTitle;
-            @BindView(R.id.ElementTimeLabel)
-            TextView ElementTimeLabel;
+            @BindView(R.id.transportationMeanTitlePreview)
+            TextView transportationMeanTitlePreview;
 
 
             ListViewElementViewHolder(View itemView) {

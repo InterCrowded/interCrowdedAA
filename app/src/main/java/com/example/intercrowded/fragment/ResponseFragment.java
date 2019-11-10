@@ -73,13 +73,14 @@ public class ResponseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_response, container, false);
         ButterKnife.bind(this, view);
 
 
         if (listHorizontal != null) {
 
-        initRecyclerView(listHorizontal, new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true), new TestAdapter(responseDataFromQuery));
+        initRecyclerView(listHorizontal, new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, false), new TestAdapter(responseDataFromQuery));
         }else {
             Toast.makeText(getContext(),"list null", Toast.LENGTH_SHORT).show();
         }
@@ -153,7 +154,7 @@ public class ResponseFragment extends Fragment {
 
         @Override
         public TestAdapter.TestViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item, null);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item, parent,false);
             return new TestAdapter.TestViewHolder(view);
         }
 
@@ -204,7 +205,7 @@ public class ResponseFragment extends Fragment {
 
     private void initRegularRecyclerView(RecyclerView optionListView, ArrayList<InterPath> paths) {
 
-        optionListView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        optionListView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true));
         optionListView.setHasFixedSize(true);
 
         optionListView.setAdapter(new ListViewElementAdapter(getContext(), paths));
