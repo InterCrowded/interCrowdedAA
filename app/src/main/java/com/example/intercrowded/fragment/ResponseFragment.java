@@ -30,6 +30,8 @@ import com.example.intercrowded.api.model.InterPath;
 import com.example.intercrowded.api.model.RouteData;
 import com.example.intercrowded.route.adapter.ListViewElementAdapter;
 
+import java.time.LocalDateTime;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -188,6 +190,31 @@ public class ResponseFragment extends Fragment {
                     getIconView(holder,i+1).setImageDrawable(getContext().getDrawable(R.drawable.scooter_icon));
                 }
             }
+
+
+
+            int number = (int)items.get(position).getPaths().get(0).getRating();
+
+            getStarView(holder, 1).setImageDrawable(getContext().getDrawable(R.drawable.star_gray));
+            getStarView(holder, 2).setImageDrawable(getContext().getDrawable(R.drawable.star_gray));
+            getStarView(holder, 3).setImageDrawable(getContext().getDrawable(R.drawable.star_gray));
+            getStarView(holder, 4).setImageDrawable(getContext().getDrawable(R.drawable.star_gray));
+
+            if(number > 4){
+                number = 4;
+            }
+
+            for (int i=0;i<number;i++ ) {
+                getStarView(holder, i+1).setImageDrawable(getContext().getDrawable(R.drawable.star_blue));
+            }
+
+            Random rand = new Random();
+
+            holder.bonusLabel.setText("for this commute you can receive " + rand.nextInt(60) + " reward points");
+            holder.timeLabel.setText(rand.nextInt(60) + " min");
+
+
+
         }
 
         private ImageView getIconView(final TestViewHolder holder, int indicator){
@@ -201,6 +228,17 @@ public class ResponseFragment extends Fragment {
             }
 
             return holder.iconContainer.findViewById(R.id.firstIndicator);
+        }
+
+        private ImageView getStarView(final TestViewHolder holder, int indicator){
+            switch (indicator){
+                case 1: return holder.starContainer.findViewById(R.id.firstStar);
+                case 2: return holder.starContainer.findViewById(R.id.secondStar);
+                case 3: return holder.starContainer.findViewById(R.id.thirdStar);
+                case 4: return holder.starContainer.findViewById(R.id.fourthStar);
+            }
+
+            return holder.starContainer.findViewById(R.id.firstStar);
         }
 
         @Override
@@ -226,6 +264,12 @@ public class ResponseFragment extends Fragment {
             LinearLayout containerHeader;
             @BindView(R.id.iconContainer)
             LinearLayout iconContainer;
+            @BindView(R.id.timeLabel)
+            TextView timeLabel;
+            @BindView(R.id.starContainer)
+            LinearLayout starContainer;
+            @BindView(R.id.bonusLabel)
+            TextView bonusLabel;
 
 
             TestViewHolder(View itemView) {

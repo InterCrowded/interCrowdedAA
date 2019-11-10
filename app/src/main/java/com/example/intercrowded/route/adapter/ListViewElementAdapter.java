@@ -44,6 +44,26 @@ public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElement
         public void onBindViewHolder(final ListViewElementViewHolder holder, int position) {
             final InterPath ad = mData.get(position);
             holder.transportationMeanTitlePreview.setText(ad.getVehicle_type());
+
+            holder.firstStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_gray));
+            holder.secondStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_gray));
+            holder.thirdStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_gray));
+            holder.fourthStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_gray));
+
+            int number = (int) ad.getRating();
+
+            if(number > 4){
+                number = 4;
+            }
+
+            for (int i=0;i<number;i++ ) {
+                switch (i + 1){
+                    case 1: holder.firstStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_blue));break;
+                    case 2: holder.secondStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_blue));break;
+                    case 3: holder.thirdStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_blue));break;
+                    case 4: holder.fourthStarPreview.setImageDrawable(context.getDrawable(R.drawable.star_blue));break;
+                }
+            }
         }
 
 
@@ -58,6 +78,14 @@ public class ListViewElementAdapter extends RecyclerView.Adapter<ListViewElement
 
             @BindView(R.id.transportationMeanTitlePreview)
             TextView transportationMeanTitlePreview;
+            @BindView(R.id.firstStarPreview)
+            ImageView firstStarPreview;
+            @BindView(R.id.secondStarPreview)
+            ImageView secondStarPreview;
+            @BindView(R.id.thirdStarPreview)
+            ImageView thirdStarPreview;
+            @BindView(R.id.fourthStarPreview)
+            ImageView fourthStarPreview;
 
 
             ListViewElementViewHolder(View itemView) {
