@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -161,12 +163,42 @@ public class ResponseFragment extends Fragment {
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
 
-        //    Toast.makeText(getContext(),items.get(position).getPaths().size(),Toast.LENGTH_SHORT).show();
-            holder.optionLabel.setText(
-                    String.valueOf(items.get(position).getPaths().get(1).getStartpoint().getName().concat(" - ").concat(items.get(position).getPaths().get(1).getEndpoint().getName())));
-            initRegularRecyclerView(holder.optionListView, items.get(position).getPaths()); //option list element
-            //holder.mItemViewBinding.cItem2.setText(String.valueOf(mPosition[position]));
-           // holder.itemView.setBackgroundColor(mColors[position]);
+            holder.optionLabel.setText("Option " + (position + 1));
+            ((TextView) holder.containerHeader.findViewById(R.id.optionTitle)).setText(String.valueOf(items.get(position).getPaths().get(1).getStartpoint().getName().concat(" - ").concat(items.get(position).getPaths().get(1).getEndpoint().getName())));
+
+            holder.iconContainer.findViewById(R.id.firstIndicator).setAlpha(0);
+            holder.iconContainer.findViewById(R.id.secondIndicator).setAlpha(0);
+            holder.iconContainer.findViewById(R.id.thirdIndicator).setAlpha(0);
+            holder.iconContainer.findViewById(R.id.fourthIndicator).setAlpha(0);
+            holder.iconContainer.findViewById(R.id.fifthIndicator).setAlpha(0);
+            holder.iconContainer.findViewById(R.id.sixthIndicator).setAlpha(0);
+
+
+            for (int i=0;i<items.get(position).getPaths().size();i++ ){
+                String type = items.get(position).getPaths().get(i).getVehicle_type();
+
+                if(type.contains("Bus")){
+                    getIconView(holder,i+1).setAlpha(1f);
+                    getIconView(holder,i+1).setImageDrawable(getContext().getDrawable(R.drawable.bus_icon));
+                }
+                if(type.contains("Scooter")){
+                    getIconView(holder,i+1).setAlpha(1f);
+                    getIconView(holder,i+1).setImageDrawable(getContext().getDrawable(R.drawable.scooter_icon));
+                }
+            }
+        }
+
+        private ImageView getIconView(final TestViewHolder holder, int indicator){
+            switch (indicator){
+                case 1: return holder.iconContainer.findViewById(R.id.firstIndicator);
+                case 2: return holder.iconContainer.findViewById(R.id.secondIndicator);
+                case 3: return holder.iconContainer.findViewById(R.id.thirdIndicator);
+                case 4: return holder.iconContainer.findViewById(R.id.fourthIndicator);
+                case 5: return holder.iconContainer.findViewById(R.id.fifthIndicator);
+                case 6: return holder.iconContainer.findViewById(R.id.sixthIndicator);
+            }
+
+            return holder.iconContainer.findViewById(R.id.firstIndicator);
         }
 
         @Override
@@ -188,6 +220,10 @@ public class ResponseFragment extends Fragment {
             TextView c_item_2;
             @BindView(R.id.optionListView)
             RecyclerView optionListView;
+            @BindView(R.id.containerHeader)
+            LinearLayout containerHeader;
+            @BindView(R.id.iconContainer)
+            LinearLayout iconContainer;
 
 
             TestViewHolder(View itemView) {
@@ -206,8 +242,7 @@ public class ResponseFragment extends Fragment {
     private void initRegularRecyclerView(RecyclerView optionListView, ArrayList<InterPath> paths) {
 
         optionListView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true));
-        optionListView.setHasFixedSize(false);
-        optionListView.setScrollBarSize(5);
+        optionListView.setHasFixedSize(true);
         optionListView.addItemDecoration(new MarginItemDecoration((int)getResources().getDimension(R.dimen.cardview_default_elevation)));
 
         optionListView.setAdapter(new ListViewElementAdapter(getContext(), paths));
